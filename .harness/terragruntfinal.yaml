@@ -18,6 +18,9 @@ pipeline:
                   name: TerragruntPlan_1
                   identifier: TerragruntPlan_1
                   spec:
+                    environmentVariables:
+                      - name: JFROG_TOKEN
+                        value: <+secrets.getValue("jfrog-token")>
                     configuration:
                       command: Apply
                       configFiles:
