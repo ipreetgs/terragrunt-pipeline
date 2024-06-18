@@ -1,8 +1,14 @@
+variable "jfrog_token" {
+  type        = string
+  description = "Token for accessing JFrog Artifactory"
+}
+
+
 terraform {
     backend "remote" {
         hostname = "gurpreet1.jfrog.io"
         organization = "tfstate"
-        token = get_env("JFROG_TOKEN")
+        token = var.jfrog_token
         workspaces {
           name = "dev"
             # prefix = "my-prefix-"
