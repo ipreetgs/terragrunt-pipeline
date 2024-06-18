@@ -1,20 +1,20 @@
-variable "jfrog_token" {
-  type        = string
-  description = "Token for accessing JFrog Artifactory"
-}
+# variable "jfrog_token" {
+#   type        = string
+#   description = "Token for accessing JFrog Artifactory"
+# }
 
 
-terraform {
-    backend "remote" {
-        hostname = "gurpreet1.jfrog.io"
-        organization = "tfstate"
-        token = var.jfrog_token
-        workspaces {
-          name = "dev"
-            # prefix = "my-prefix-"
-        }
-    }
-}
+# terraform {
+#     backend "remote" {
+#         hostname = "gurpreet1.jfrog.io"
+#         organization = "tfstate"
+#         token = var.jfrog_token
+#         workspaces {
+#           name = "dev"
+#             # prefix = "my-prefix-"
+#         }
+#     }
+# }
 
 
 
