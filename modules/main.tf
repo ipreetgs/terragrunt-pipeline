@@ -17,6 +17,11 @@
 # }
 terraform {
   backend "remote" {
+      workspaces {
+        name = "dev"
+            # prefix = "my-prefix-"
+        }
+  }
     
   }
 }
