@@ -1,0 +1,48 @@
+pipeline:
+  name: terragrunt-final
+  identifier: terragruntfinal
+  projectIdentifier: DemoTx
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: terragrunt
+        identifier: terragrunt
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: TerragruntPlan
+                  name: TerragruntPlan_1
+                  identifier: TerragruntPlan_1
+                  spec:
+                    configuration:
+                      command: Apply
+                      configFiles:
+                        store:
+                          type: Github
+                          spec:
+                            gitFetchType: Branch
+                            connectorRef: account.Github_OAuth_1702454216196
+                            repoName: " https://github.com/ipreetgs/terragrunt-pipeline"
+                            branch: main
+                            folderPath: .
+                      moduleConfig:
+                        terragruntRunType: RunAll
+                        path: live/aws
+                      secretManagerRef: harnessSecretManager
+                    provisionerIdentifier: a1a
+                  timeout: 10m
+        tags: {}
+        variables:
+          - name: JFROG_TOKEN
+            type: String
+            description: ""
+            required: false
+            value: <+secrets.getValue("jfrog-token")>
+        delegateSelectors:
+          - docker-delegate2-terraform
+  delegateSelectors:
+    - docker-delegate2-terraform
