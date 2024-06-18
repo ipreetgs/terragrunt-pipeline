@@ -43,6 +43,6 @@ pipeline:
             required: false
             value: <+secrets.getValue("jfrog-token")>
         delegateSelectors:
-          - docker-delegate2-terraform
+          - docker-delegate2-terraform-terragrunt
   delegateSelectors:
     - docker-delegate2-terraform
