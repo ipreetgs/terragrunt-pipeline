@@ -22,9 +22,6 @@ locals {
 # }
 terraform {
   backend "remote" {
-    hostname = "gurpreet1.jfrog.io"
-        organization = "tfstate"
-        token = var.jfrog_token
       workspaces {
         name = "dev1"
             # prefix = "my-prefix-"
