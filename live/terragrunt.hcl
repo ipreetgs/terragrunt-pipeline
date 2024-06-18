@@ -6,7 +6,7 @@ remote_state {
   backend = "remote"
   config = {
     hostname = "gurpreet1.jfrog.io"
-    organization = "tfstate"
+    organization = "tf2"
     token = local.jfrog_token
     # workspaces {
     #     name = "dev"
