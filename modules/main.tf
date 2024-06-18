@@ -23,8 +23,8 @@ locals {
 terraform {
   backend "remote" {
       workspaces {
-        name = "dev1"
-            # prefix = "my-prefix-"
+        # name = "dev1"
+            prefix = "my-prefix-"
         }
   } 
   }
