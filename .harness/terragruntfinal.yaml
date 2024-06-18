@@ -39,17 +39,6 @@ pipeline:
                     provisionerIdentifier: a1a
                   timeout: 10m
         tags: {}
-        variables:
-          - name: JFROG_TOKEN
-            type: String
-            description: ""
-            required: false
-            value: <+secrets.getValue("jfrog-token")>
-          - name: jfrog_token
-            type: String
-            description: ""
-            required: false
-            value: <+secrets.getValue("JFROG_TOKEN")>
         delegateSelectors:
           - docker-delegate2-terraform-terragrunt
   delegateSelectors:
