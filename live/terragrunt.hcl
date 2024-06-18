@@ -32,7 +32,3 @@ provider "aws" {
 
 EOF
 }
-
-inputs{
-    jfrog_token = get_env("JFROG_TOKEN", "default-token-value")
-}
