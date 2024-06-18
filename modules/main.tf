@@ -18,13 +18,11 @@
 terraform {
   backend "remote" {
       workspaces {
-        name = "dev"
+        name = "dev1"
             # prefix = "my-prefix-"
         }
+  } 
   }
-    
-  }
-}
 
 resource "aws_s3_bucket" "example_bucket" {
   bucket = "edemotcchd12" # Change to your desired bucket name
