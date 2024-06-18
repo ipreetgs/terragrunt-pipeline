@@ -1,9 +1,13 @@
+locals {
+  jfrog_token = get_env("JFROG_TOKEN", "default-value-if-not-set")
+}
+
 remote_state {
   backend = "remote"
   config = {
     hostname = "gurpreet1.jfrog.io"
     organization = "tfstate"
-    token = get_env("JFROG_TOKEN")
+    token = local.jfrog_token
     # workspaces {
     #     name = "dev"
     #         # prefix = "my-prefix-"
@@ -27,4 +31,8 @@ provider "aws" {
 }
 
 EOF
+}
+
+inputs{
+    jfrog_token = get_env("JFROG_TOKEN", "default-token-value")
 }
