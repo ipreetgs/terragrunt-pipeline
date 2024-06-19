@@ -49,7 +49,7 @@ pipeline:
                             branch: main
                             folderPath: .
                       moduleConfig:
-                        terragruntRunType: RunAll
+                        terragruntRunType: RunModule
                         path: live/aws
                       secretManagerRef: harnessSecretManager
                       environmentVariables:
