@@ -55,5 +55,11 @@ pipeline:
         tags: {}
         delegateSelectors:
           - docker-delegate2-terraform-terragrunt
+        variables:
+          - name: JFROG_TOKEN
+            type: String
+            description: ""
+            required: false
+            value: <+secrets.getValue("jfrog-token")>
   delegateSelectors:
     - docker-delegate2-terraform
