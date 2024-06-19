@@ -49,7 +49,7 @@ pipeline:
                             branch: main
                             folderPath: .
                       moduleConfig:
-                        terragruntRunType: RunAll
+                        terragruntRunType: RunModule
                         path: live/aws
                       secretManagerRef: harnessSecretManager
                       environmentVariables:
@@ -57,6 +57,38 @@ pipeline:
                           value: <+secrets.getValue("jfrog-token")>
                           type: String
                     provisionerIdentifier: a1a
+                  timeout: 10m
+              - step:
+                  type: TerragruntApply
+                  name: TerragruntApply_1
+                  identifier: TerragruntApply_1
+                  spec:
+                    configuration:
+                      type: InheritFromPlan
+                    provisionerIdentifier: a1a
+                  timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: ShellScript_2
+                  identifier: ShellScript_2
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: echo Done
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
+              - step:
+                  type: TerragruntDestroy
+                  name: TerragruntDestroy_1
+                  identifier: TerragruntDestroy_1
+                  spec:
+                    provisionerIdentifier: a1a
+                    configuration:
+                      type: InheritFromApply
                   timeout: 10m
         tags: {}
         delegateSelectors:
