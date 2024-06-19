@@ -30,6 +30,6 @@ terraform {
   }
 
 resource "aws_s3_bucket" "example_bucket" {
-  bucket = "demotchs24ds" # Change to your desired bucket name
+  bucket = "demotchschd324ds" # Change to your desired bucket name
 
 }
