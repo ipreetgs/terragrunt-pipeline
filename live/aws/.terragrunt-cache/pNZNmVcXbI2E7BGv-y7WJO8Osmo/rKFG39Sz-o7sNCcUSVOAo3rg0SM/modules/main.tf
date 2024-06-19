@@ -1,6 +1,6 @@
-# locals {
-#   jfrog_token = get_env("JFROG_TOKEN", "default-value-if-not-set")
-# }
+locals {
+  jfrog_token = get_env("JFROG_TOKEN", "default-value-if-not-set")
+}
 
 
 # variable "jfrog_token" {
