@@ -14,23 +14,6 @@ pipeline:
           execution:
             steps:
               - step:
-                  type: ShellScript
-                  name: ShellScript_1
-                  identifier: ShellScript_1
-                  spec:
-                    shell: Bash
-                    executionTarget: {}
-                    source:
-                      type: Inline
-                      spec:
-                        environmentVariables:
-                          - name: JFROG_TOKEN
-                            value: <+secrets.getValue("jfrog-token")>
-                        script: echo $JFROG_TOKEN
-                    environmentVariables: []
-                    outputVariables: []
-                  timeout: 10m
-              - step:
                   type: TerragruntPlan
                   name: TerragruntPlan_1
                   identifier: TerragruntPlan_1
