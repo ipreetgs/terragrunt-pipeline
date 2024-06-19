@@ -23,7 +23,7 @@ pipeline:
                     source:
                       type: Inline
                       spec:
-                        script: echo JFROG_TOKEN
+                        script: echo $JFROG_TOKEN
                     environmentVariables: []
                     outputVariables: []
                   timeout: 10m
